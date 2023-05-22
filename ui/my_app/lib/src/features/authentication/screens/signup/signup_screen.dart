@@ -3,10 +3,10 @@ import 'package:flutter/material.dart';
 import 'package:my_app/src/features/authentication/constants/image_strings.dart';
 import 'package:my_app/src/features/authentication/constants/sizes.dart';
 import 'package:my_app/src/features/authentication/constants/text_strings.dart';
-import 'package:my_app/src/features/authentication/screens/signup/signup_screen.dart';
+import 'package:my_app/src/features/authentication/screens/login/login_screen.dart';
 
-class LoginScreen extends StatelessWidget{
-  const LoginScreen({Key? key}) : super(key: key);
+class SignUpScreen extends StatelessWidget{
+  const SignUpScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context)
@@ -20,8 +20,8 @@ class LoginScreen extends StatelessWidget{
           children: [
 
           Image(image: AssetImage(welcomeScreenImage2), height: height * 0.2),
-          Text(tWelcomeBack),
-          Text(tLoginSubtitle),
+          Text(tSignupTitle),
+          Text(tSignupSubtitle),
 
 
             Form(child: Container(padding: EdgeInsets.symmetric(vertical: 20.0),child: Column(
@@ -30,6 +30,13 @@ class LoginScreen extends StatelessWidget{
               children: [
                 TextFormField(
                   decoration: InputDecoration(prefixIcon: Icon(Icons.person_outline_outlined),
+                  labelText : tUserName,
+                  hintText : tUserName,
+                  border: OutlineInputBorder())
+                ),
+                SizedBox(height: 30),
+                TextFormField(
+                  decoration: InputDecoration(prefixIcon: Icon(Icons.email),
                   labelText : tEmail,
                   hintText : tEmail,
                   border: OutlineInputBorder())
@@ -42,13 +49,9 @@ class LoginScreen extends StatelessWidget{
                   border: OutlineInputBorder(),
                   suffixIcon: IconButton(onPressed: null,icon:Icon(Icons.remove_red_eye_sharp)))
                 ),
-                SizedBox(height: 10),
-                Align(
-                  alignment: Alignment.centerRight,
-                  child: TextButton(onPressed: (){}, child: const Text(tForgotPassword),),
-                ),
+                
 
-                SizedBox(width:double.infinity, child:ElevatedButton(onPressed: (){}, child: Text(tLogin.toUpperCase())))
+                SizedBox(width:double.infinity, child:ElevatedButton(onPressed: (){}, child: Text(tSignUP.toUpperCase())))
               ],
             )
             )
@@ -63,7 +66,7 @@ class LoginScreen extends StatelessWidget{
 
                 TextButton(onPressed: (){Navigator.push(context, MaterialPageRoute(
                                       builder: (context) =>
-                                          const SignUpScreen()));}, child: const Text.rich(TextSpan(text:tDontHaveAnAccount, children: [TextSpan(text: tSignUP, style: TextStyle(color: Colors.blue))])))
+                                          const LoginScreen()));}, child: const Text.rich(TextSpan(text:tALreadyHaveAnAccount, children: [TextSpan(text: tLogin, style: TextStyle(color: Colors.blue))])))
               ],
             )
           ],

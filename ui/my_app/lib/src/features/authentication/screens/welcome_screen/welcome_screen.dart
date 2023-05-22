@@ -7,6 +7,7 @@ import 'package:my_app/src/features/authentication/constants/image_strings.dart'
 import 'package:my_app/src/features/authentication/constants/sizes.dart';
 import 'package:my_app/src/features/authentication/constants/text_strings.dart';
 import 'package:my_app/src/features/authentication/screens/login/login_screen.dart';
+import 'package:my_app/src/features/authentication/screens/signup/signup_screen.dart';
 
 class WelcomeScreen extends StatelessWidget {
   const WelcomeScreen({Key? key}) : super(key: key);
@@ -63,7 +64,12 @@ class WelcomeScreen extends StatelessWidget {
                               style: ElevatedButton.styleFrom(
                                   padding: EdgeInsets.symmetric(
                                       vertical: tButtonHeight)),
-                              onPressed: () {},
+                              onPressed: () {Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) =>
+                                          const SignUpScreen()),
+                                );},
                               child: Text(tSignUP.toUpperCase())))
                     ],
                   )
