@@ -1,17 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:my_app/src/common_widgets/fade_in_animation/animation_design.dart';
+import 'package:my_app/src/common_widgets/fade_in_animation/fade_in_animation_model.dart';
 import 'package:my_app/src/features/authentication/constants/colours.dart';
 import 'package:my_app/src/features/authentication/constants/image_strings.dart';
 import 'package:my_app/src/features/authentication/constants/text_strings.dart';
-import 'package:my_app/src/features/authentication/controllers/splash_screen_controller.dart';
+import 'package:my_app/src/common_widgets/fade_in_animation/fad_in_animation_controller.dart';
 
 class SplashScreen extends StatelessWidget {
   SplashScreen({Key? key}) : super(key: key);
-  final splashScreenController = Get.put(SplashScreenController());
+
 
   @override
   Widget build(BuildContext context) {
-    splashScreenController.startAnimation();
+    final controller = Get.put(FadeInAnimationController());
+    controller.startSplashAnimation();
     return Scaffold(
       body: SafeArea(
         child: Stack(
@@ -38,24 +41,20 @@ class SplashScreen extends StatelessWidget {
                             fontSize: 20)))
               ],
             )),
-            Obx(() => AnimatedPositioned(
-                duration: const Duration(milliseconds: 1600),
-                bottom: splashScreenController.animate.value ? 200 : -70,
-                child: AnimatedOpacity(
-                    duration: const Duration(milliseconds: 1600),
-                    opacity: splashScreenController.animate.value ? 1 : 0,
-                    child: Container(
-                        width: 420,
-                        height: 300,
-                        decoration: const BoxDecoration(
-                          image: DecorationImage(
-                            image: AssetImage(splashScreenImage3),
-                            fit: BoxFit.contain,
-                          ),
-                        ))))),
+            TFadeInAnimation(durationInMs: 1600,child: Container(
+                  width: 420,
+                  height: 300,
+                  decoration: const BoxDecoration(
+                    image: DecorationImage(
+                      image: AssetImage(splashScreenImage3),
+                      fit: BoxFit.contain,
+                    ),
+                  )),animate: TAmimatePosition(bottomAfter:30, bottomBefore: -80)),
           ],
         ),
       ),
     );
   }
 }
+
+
