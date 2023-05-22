@@ -6,6 +6,7 @@ import 'package:my_app/src/common_widgets/fade_in_animation/fade_in_animation_mo
 import 'package:my_app/src/features/authentication/constants/image_strings.dart';
 import 'package:my_app/src/features/authentication/constants/sizes.dart';
 import 'package:my_app/src/features/authentication/constants/text_strings.dart';
+import 'package:my_app/src/features/authentication/screens/login/login_screen.dart';
 
 class WelcomeScreen extends StatelessWidget {
   const WelcomeScreen({Key? key}) : super(key: key);
@@ -32,7 +33,10 @@ class WelcomeScreen extends StatelessWidget {
                 child: OutlinedButton(
                     style: OutlinedButton.styleFrom(
                         padding: EdgeInsets.symmetric(vertical: tButtonHeight)),
-                    onPressed: () {},
+                    onPressed: () {Navigator.push(
+    context,
+    MaterialPageRoute(builder: (context) => const LoginScreen()),
+  );},
                     child: Text(tLogin.toUpperCase()))),
             SizedBox(width: 10.0),
             Expanded(
