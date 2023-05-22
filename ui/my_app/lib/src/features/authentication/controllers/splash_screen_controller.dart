@@ -14,7 +14,7 @@ class SplashScreenController extends GetxController{
     Future startAnimation() async{
     await Future.delayed(Duration(milliseconds:500 ));
     
-      animate = true.obs;
+      animate.value = true;
     
     await Future.delayed(Duration(milliseconds:5000 ));
     // Navigator.pushReplacement(context, MaterialPageRoute(builder: context=>We))

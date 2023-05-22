@@ -27,29 +27,32 @@ final splashScreenController= Get.put(SplashScreenController());
                         color: Colors.grey[800],
                         fontWeight: FontWeight.w900,
                         fontStyle: FontStyle.italic,
-                        fontFamily: 'Open Sans',
+                        
                         fontSize: 40))),
                 Align(alignment: Alignment.center,child:Text("Tag Line",
                     style: TextStyle(
                         color: Colors.grey[800],
                         fontWeight: FontWeight.w900,
                         fontStyle: FontStyle.italic,
-                        fontFamily: 'Open Sans',
+                        
                         fontSize: 20)))
               ],
             )),
             Obx(()=>AnimatedPositioned(
               duration: const Duration(milliseconds: 1600),
-              bottom: splashScreenController.animate.value?200:-80,
+              bottom: splashScreenController.animate.value?200:-70,
+              child:AnimatedOpacity(
+                duration: const Duration(milliseconds: 1600),
+                opacity:splashScreenController.animate.value?1:0 ,
               child:Container(
                 width: 420,
                 height: 300,
                 decoration: BoxDecoration(
                   image: DecorationImage(
-                    image: AssetImage('assets/images/splash_screen.jpg'),
+                    image: AssetImage('assets/images/splash_screen3.png'),
                     fit: BoxFit.contain,
                   ),
-                )))),
+                ))))),
           ],
         ),
       ),
