@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:my_app/src/features/authentication/constants/image_strings.dart';
 import 'package:my_app/src/features/authentication/constants/sizes.dart';
 import 'package:my_app/src/features/authentication/constants/text_strings.dart';
+import 'package:my_app/src/features/authentication/screens/forgot_password/forgot_password_mail.dart';
 import 'package:my_app/src/features/authentication/screens/signup/signup_screen.dart';
 
 class LoginScreen extends StatelessWidget{
@@ -45,7 +46,35 @@ class LoginScreen extends StatelessWidget{
                 SizedBox(height: 10),
                 Align(
                   alignment: Alignment.centerRight,
-                  child: TextButton(onPressed: (){}, child: const Text(tForgotPassword),),
+                  child: TextButton(onPressed: (){showModalBottomSheet(context: context, builder: (conext)=>Container(
+                      padding: const EdgeInsets.all(tDefaultSize),
+                      child: Column(crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(tForgotPassword),
+                        Text(tForgotPasswordSubtitle),
+                        const SizedBox(height: 30.0,),
+                        GestureDetector(onTap : (){Navigator.push(context, MaterialPageRoute(
+                                      builder: (context) =>
+                                          const ForgotPasswordMailScreen()));}, child:Container(
+                          padding: const EdgeInsets.all(20.0),
+                          decoration: BoxDecoration(borderRadius: BorderRadius.circular(10.0),
+                          color: Colors.grey.shade100),
+                          child: Row(children: [
+                            const Icon(Icons.mail_outline_rounded, size: 60.0,),
+                            SizedBox(width: 10.0,),
+                            Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text(tEmail),
+                                Text(tResetViaEmail)
+                              ],
+                            )
+
+                          ]),
+                        ))
+                      ],),
+
+                  ));}, child: const Text(tForgotPassword),),
                 ),
 
                 SizedBox(width:double.infinity, child:ElevatedButton(onPressed: (){}, child: Text(tLogin.toUpperCase())))
