@@ -2,9 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:my_app/src/features/authentication/constants/image_strings.dart';
 import 'package:my_app/src/features/authentication/constants/sizes.dart';
+import 'package:my_app/src/features/authentication/screens/articles/articleList.dart';
+import 'package:my_app/src/features/authentication/screens/colleges.dart/college_list.dart';
+import 'package:my_app/src/features/authentication/screens/courses/coursePage.dart';
+import 'package:my_app/src/features/authentication/screens/landing_page/pageDrawer.dart';
 
 class LandingPage extends StatelessWidget {
   LandingPage({Key? key}) : super(key: key);
+  // relevant images for articles
   final items = [
     splashScreenImage,
     splashScreenImage2,
@@ -14,62 +19,7 @@ class LandingPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      drawer: Drawer(
-        // Add a ListView to the drawer. This ensures the user can scroll
-        // through the options in the drawer if there isn't enough vertical
-        // space to fit everything.
-        child: Column(
-          // Important: Remove any padding from the ListView.
-          mainAxisSize: MainAxisSize.max,
-          children: [
-            DrawerHeader(
-                decoration: BoxDecoration(
-                  color: Colors.teal,
-                ),
-                //
-                child: Row(
-                  children: [
-                    
-                    CircleAvatar(foregroundImage: AssetImage(welcomeScreenImage2),radius: 45),
-                    Container(child: Text('Hello <UserName>'),margin: EdgeInsets.all(5.0))
-                    
-                  ],
-                )),
-            ListTile(
-              title: const Text('Update Profile'),
-              onTap: () {
-                // Update the state of the app
-                // ...
-                // Then close the drawer
-                Navigator.pop(context);
-              },
-            ),
-            ListTile(
-              title: const Text('Terms Of Use'),
-              onTap: () {
-                // Update the state of the app
-                // ...
-                // Then close the drawer
-                Navigator.pop(context);
-              },
-            ),
-            Expanded(
-              child: Align(
-                alignment: Alignment.bottomCenter,
-                child: ListTile(
-                  title: const Text('Logout'),
-                  onTap: () {
-                    // Update the state of the app
-                    // ...
-                    // Then close the drawer
-                    Navigator.pop(context);
-                  },
-                ),
-              ),
-            ),
-          ],
-        ),
-      ),
+      drawer: pageDrawer(),
       appBar: AppBar(
         title: Text('Page heading'),
       ),
@@ -97,19 +47,32 @@ class LandingPage extends StatelessWidget {
               crossAxisCount: 2,
               children: [
                 GestureDetector(
+                    onTap: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => CollegeList()));
+                    },
                     child: Container(
-                  padding: EdgeInsets.all(tDefaultSize),
-                  margin: EdgeInsets.all(10.0),
-                  height: 20,
-                  width: 30,
-                  // color: Colors.teal,
-                  child: Text("Option 1"),
-                  decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(10.0),
-                      border: Border.all(color: Colors.teal, width: 5),
-                      shape: BoxShape.rectangle),
-                )),
+                      padding: EdgeInsets.all(tDefaultSize),
+                      margin: EdgeInsets.all(10.0),
+                      height: 20,
+                      width: 30,
+
+                      // color: Colors.teal,
+                      child: Text("Option 1"),
+                      decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(10.0),
+                          border: Border.all(color: Colors.teal, width: 5),
+                          shape: BoxShape.rectangle),
+                    )),
                 GestureDetector(
+                  onTap: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => courseList()));
+                    },
                     child: Container(
                   padding: EdgeInsets.all(tDefaultSize),
                   margin: EdgeInsets.all(10.0),
@@ -123,6 +86,12 @@ class LandingPage extends StatelessWidget {
                       shape: BoxShape.rectangle),
                 )),
                 GestureDetector(
+                  onTap: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => articleList()));
+                    },
                     child: Container(
                   padding: EdgeInsets.all(tDefaultSize),
                   margin: EdgeInsets.all(10.0),
