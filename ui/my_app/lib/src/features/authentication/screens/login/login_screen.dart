@@ -4,6 +4,7 @@ import 'package:my_app/src/features/authentication/constants/image_strings.dart'
 import 'package:my_app/src/features/authentication/constants/sizes.dart';
 import 'package:my_app/src/features/authentication/constants/text_strings.dart';
 import 'package:my_app/src/features/authentication/screens/forgot_password/forgot_password_mail.dart';
+import 'package:my_app/src/features/authentication/screens/landing_page/landing_page.dart';
 import 'package:my_app/src/features/authentication/screens/signup/signup_screen.dart';
 
 class LoginScreen extends StatelessWidget{
@@ -77,7 +78,9 @@ class LoginScreen extends StatelessWidget{
                   ));}, child: const Text(tForgotPassword),),
                 ),
 
-                SizedBox(width:double.infinity, child:ElevatedButton(onPressed: (){}, child: Text(tLogin.toUpperCase())))
+                SizedBox(width:double.infinity, child:ElevatedButton(onPressed: (){Navigator.push(context, MaterialPageRoute(
+                                      builder: (context) =>
+                                          LandingPage()));}, child: Text(tLogin.toUpperCase())))
               ],
             )
             )
