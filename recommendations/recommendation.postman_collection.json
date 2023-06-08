@@ -1,0 +1,138 @@
+{
+	"info": {
+		"_postman_id": "c8d064d1-dd3d-43f8-8459-880a91639b3c",
+		"name": "recommendation",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "14318577"
+	},
+	"item": [
+		{
+			"name": "colleges",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://recom.cfapps.sap.hana.ondemand.com/v1/colleges?subject=Computer science",
+					"protocol": "https",
+					"host": [
+						"recom",
+						"cfapps",
+						"sap",
+						"hana",
+						"ondemand",
+						"com"
+					],
+					"path": [
+						"v1",
+						"colleges"
+					],
+					"query": [
+						{
+							"key": "subject",
+							"value": "Computer science"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "degree courses",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://recom.cfapps.sap.hana.ondemand.com/v1/degreeCourses?hobbies=puzzles, writing&skills=problem solving, math, english&personality=INTJ",
+					"protocol": "https",
+					"host": [
+						"recom",
+						"cfapps",
+						"sap",
+						"hana",
+						"ondemand",
+						"com"
+					],
+					"path": [
+						"v1",
+						"degreeCourses"
+					],
+					"query": [
+						{
+							"key": "hobbies",
+							"value": "puzzles, writing"
+						},
+						{
+							"key": "skills",
+							"value": "problem solving, math, english"
+						},
+						{
+							"key": "personality",
+							"value": "INTJ"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "courses",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://recom.cfapps.sap.hana.ondemand.com/v1/course?skills=python,nlp,java",
+					"protocol": "https",
+					"host": [
+						"recom",
+						"cfapps",
+						"sap",
+						"hana",
+						"ondemand",
+						"com"
+					],
+					"path": [
+						"v1",
+						"course"
+					],
+					"query": [
+						{
+							"key": "skills",
+							"value": "python,nlp,java"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "courses Copy",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://recom.cfapps.sap.hana.ondemand.com/v1/latestNews?topics=tech,finance,sports",
+					"protocol": "https",
+					"host": [
+						"recom",
+						"cfapps",
+						"sap",
+						"hana",
+						"ondemand",
+						"com"
+					],
+					"path": [
+						"v1",
+						"latestNews"
+					],
+					"query": [
+						{
+							"key": "topics",
+							"value": "tech,finance,sports"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

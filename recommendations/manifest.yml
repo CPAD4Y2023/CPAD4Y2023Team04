@@ -1,0 +1,11 @@
+---
+applications:
+  - name: recom
+    path: .
+    buildpacks:
+      # - https://github.com/cloudfoundry/multi-buildpack
+      - python_buildpack
+    # command: python app.py
+    env:
+      FLASK_ENV: 'Development'
+    # stack: cflinuxfs3
