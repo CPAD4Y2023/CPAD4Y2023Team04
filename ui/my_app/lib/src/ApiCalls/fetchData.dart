@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:my_app/src/features/authentication/screens/colleges/college_list.dart';
 import 'dart:convert';
-
+import 'package:url_launcher/url_launcher.dart';
 import 'package:my_app/src/models/news.dart';
 // Future fetchColleges() async {
 //   // TO do : make this dynamic
@@ -71,6 +71,15 @@ class FetchData extends GetxController {
       throw Exception('Failed to load courses');
     }
   }
+
+RxString url = "".obs;
+
+ Future launchingUrl() async {
+   Uri _url = Uri.parse(url.value);
+  if (!await launchUrl(_url)) {
+    throw Exception('Could not launch $_url');
+  }
+}
 
 
 }
