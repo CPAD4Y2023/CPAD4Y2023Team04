@@ -3,7 +3,7 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'package:my_app/src/features/authentication/constants/image_strings.dart';
 import 'package:my_app/src/features/authentication/constants/sizes.dart';
 import 'package:my_app/src/features/authentication/screens/articles/articleList.dart';
-import 'package:my_app/src/features/authentication/screens/colleges.dart/college_list.dart';
+import 'package:my_app/src/features/authentication/screens/colleges/college_list.dart';
 import 'package:my_app/src/features/authentication/screens/courses/coursePage.dart';
 import 'package:my_app/src/features/authentication/screens/landing_page/pageDrawer.dart';
 
@@ -44,79 +44,116 @@ class LandingPage extends StatelessWidget {
             padding: EdgeInsets.all(40),
             height: 500,
             child: GridView.count(
+              mainAxisSpacing: 20,
+              crossAxisSpacing: 20,
               crossAxisCount: 2,
               children: [
-                GestureDetector(
-                    onTap: () {
-                      Navigator.push(
+                Material(
+                    color: Colors.teal[100],
+                    elevation: 8,
+                    borderRadius: BorderRadius.circular(8),
+                    clipBehavior: Clip.antiAliasWithSaveLayer,
+                    child: InkWell(
+                        splashColor: Colors.black26,
+                        onTap: () {Navigator.push(
                           context,
                           MaterialPageRoute(
                               builder: (context) => CollegeList()));
                     },
-                    child: Container(
-                      padding: EdgeInsets.all(tDefaultSize),
-                      margin: EdgeInsets.all(10.0),
-                      height: 20,
-                      width: 30,
-
-                      // color: Colors.teal,
-                      child: Text("Option 1"),
-                      decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(10.0),
-                          border: Border.all(color: Colors.teal, width: 5),
-                          shape: BoxShape.rectangle),
-                    )),
-                GestureDetector(
-                  onTap: () {
-                      Navigator.push(
+                        child:
+                            Column(mainAxisSize: MainAxisSize.min, children: [
+                          Ink.image(
+                            image: AssetImage(splashScreenImage),
+                            height: 120,
+                            width: 140,
+                            fit: BoxFit.cover,
+                          ),
+                          SizedBox(height: 6),
+                          Text('Find College',
+                              style:
+                                  TextStyle(fontSize: 14, color: Colors.white)),
+                          SizedBox(height: 6)
+                        ]))),
+                Material(
+                    color: Colors.teal[100],
+                    elevation: 8,
+                    borderRadius: BorderRadius.circular(8),
+                    clipBehavior: Clip.antiAliasWithSaveLayer,
+                    child: InkWell(
+                        splashColor: Colors.black26,
+                        onTap: () {},
+                        child:
+                            Column(mainAxisSize: MainAxisSize.min, children: [
+                          Ink.image(
+                            image: AssetImage(splashScreenImage),
+                            height: 120,
+                            width: 140,
+                            fit: BoxFit.cover,
+                          ),
+                          SizedBox(
+                            height: 6,
+                          ),
+                          Text('Find Jobs',
+                              style:
+                                  TextStyle(fontSize: 14, color: Colors.white)),
+                          SizedBox(height: 6)
+                        ]))),
+                Material(
+                    color: Colors.teal[100],
+                    elevation: 8,
+                    borderRadius: BorderRadius.circular(8),
+                    clipBehavior: Clip.antiAliasWithSaveLayer,
+                    child: InkWell(
+                        splashColor: Colors.black26,
+                        onTap: () {Navigator.push(
                           context,
                           MaterialPageRoute(
                               builder: (context) => courseList()));
                     },
-                    child: Container(
-                  padding: EdgeInsets.all(tDefaultSize),
-                  margin: EdgeInsets.all(10.0),
-                  height: 20,
-                  width: 30,
-                  // color: Colors.teal,
-                  child: Text("Option 2"),
-                  decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(10.0),
-                      border: Border.all(color: Colors.teal, width: 5),
-                      shape: BoxShape.rectangle),
-                )),
-                GestureDetector(
-                  onTap: () {
-                      Navigator.push(
+                        child:
+                            Column(mainAxisSize: MainAxisSize.min, children: [
+                          Ink.image(
+                            image: AssetImage(splashScreenImage),
+                            height: 120,
+                            width: 140,
+                            fit: BoxFit.cover,
+                          ),
+                          SizedBox(
+                            height: 6,
+                          ),
+                          Text('Find Courses',
+                              style:
+                                  TextStyle(fontSize: 14, color: Colors.white)),
+                          SizedBox(height: 6)
+                        ]))),
+                Material(
+                    color: Colors.teal[100],
+                    elevation: 8,
+                    borderRadius: BorderRadius.circular(8),
+                    clipBehavior: Clip.antiAliasWithSaveLayer,
+                    child: InkWell(
+                        splashColor: Colors.black26,
+                        onTap: () {Navigator.push(
                           context,
                           MaterialPageRoute(
                               builder: (context) => articleList()));
                     },
-                    child: Container(
-                  padding: EdgeInsets.all(tDefaultSize),
-                  margin: EdgeInsets.all(10.0),
-                  height: 20,
-                  width: 30,
-                  // color: Colors.teal,
-                  child: Text("Option 3"),
-                  decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(10.0),
-                      border: Border.all(color: Colors.teal, width: 5),
-                      shape: BoxShape.rectangle),
-                )),
-                GestureDetector(
-                    child: Container(
-                  padding: EdgeInsets.all(tDefaultSize),
-                  margin: EdgeInsets.all(10.0),
-                  height: 20,
-                  width: 30,
-                  // color: Colors.teal,
-                  child: Text("Option 4"),
-                  decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(10.0),
-                      border: Border.all(color: Colors.teal, width: 5),
-                      shape: BoxShape.rectangle),
-                ))
+                        child:
+                            Column(mainAxisSize: MainAxisSize.min, children: [
+                          Ink.image(
+                            image: AssetImage(splashScreenImage),
+                            height: 120,
+                            width: 140,
+                            fit: BoxFit.cover,
+                          ),
+                          SizedBox(
+                            height: 6,
+                          ),
+                          Text('Get News',
+                              style:
+                                  TextStyle(fontSize: 14, color: Colors.white)),
+                          SizedBox(height: 6)
+                        ])))
               ],
             ))
       ]),
