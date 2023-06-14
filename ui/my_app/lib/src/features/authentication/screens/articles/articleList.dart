@@ -1,11 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:carousel_slider/carousel_slider.dart';
+import 'package:my_app/src/ApiCalls/fetchData.dart';
 import 'package:my_app/src/features/authentication/constants/image_strings.dart';
 import 'package:my_app/src/features/authentication/constants/sizes.dart';
 import 'package:my_app/src/features/authentication/screens/landing_page/pageDrawer.dart';
 
 class articleList extends StatelessWidget {
   articleList({Key? key}) : super(key: key);
+
+  final controller = Get.put(FetchData());
   final items = [
     splashScreenImage,
     splashScreenImage2,
@@ -15,6 +19,7 @@ class articleList extends StatelessWidget {
   final articles  = ["article1", "article2" , "article3"];
   @override
   Widget build(BuildContext context) {
+     controller.fetchNews();
     return Scaffold(
       drawer: pageDrawer(),
       appBar: AppBar(
