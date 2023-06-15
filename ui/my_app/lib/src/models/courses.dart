@@ -11,7 +11,7 @@ class Courses {
 
   factory Courses.fromJson(Map<String, dynamic> json) {
     return Courses(
-      link: json['Link'],
+      link: json['Link'].toString().trim(),
       course: json['Course']
     );
   }

@@ -10,9 +10,9 @@ import 'package:loading_animation_widget/loading_animation_widget.dart';
 
 
 class CollegeList extends StatelessWidget {
-  CollegeList({Key? key}) : super(key: key);
+  CollegeList({Key? key, required this.courseName}) : super(key: key);
   // relevant images for college
- 
+ final String courseName;
 final controller = Get.put(FetchData());
 
   final items = [
@@ -26,7 +26,7 @@ final controller = Get.put(FetchData());
   Widget build(BuildContext context) {
 
      
-     controller.fetchDegreeColleges();
+     controller.fetchDegreeColleges(courseName);
     return Scaffold(
       drawer: pageDrawer(),
       appBar: AppBar(

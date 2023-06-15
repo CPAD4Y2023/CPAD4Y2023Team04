@@ -5,6 +5,7 @@ import 'package:my_app/src/features/authentication/constants/sizes.dart';
 import 'package:my_app/src/features/authentication/screens/articles/articleList.dart';
 import 'package:my_app/src/features/authentication/screens/colleges/college_list.dart';
 import 'package:my_app/src/features/authentication/screens/courses/coursePage.dart';
+import 'package:my_app/src/features/authentication/screens/courses/degreeCourses.dart';
 import 'package:my_app/src/features/authentication/screens/landing_page/pageDrawer.dart';
 
 class LandingPage extends StatelessWidget {
@@ -58,7 +59,7 @@ class LandingPage extends StatelessWidget {
                         onTap: () {Navigator.push(
                           context,
                           MaterialPageRoute(
-                              builder: (context) => CollegeList()));
+                              builder: (context) => Degreecourses()));
                     },
                         child:
                             Column(mainAxisSize: MainAxisSize.min, children: [
@@ -69,7 +70,7 @@ class LandingPage extends StatelessWidget {
                             fit: BoxFit.cover,
                           ),
                           SizedBox(height: 6),
-                          Text('Find College',
+                          Text('Find Degree Courses',
                               style:
                                   TextStyle(fontSize: 14, color: Colors.white)),
                           SizedBox(height: 6)
@@ -121,7 +122,7 @@ class LandingPage extends StatelessWidget {
                           SizedBox(
                             height: 6,
                           ),
-                          Text('Find Courses',
+                          Text('Find Online Courses',
                               style:
                                   TextStyle(fontSize: 14, color: Colors.white)),
                           SizedBox(height: 6)

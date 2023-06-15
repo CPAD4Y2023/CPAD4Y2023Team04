@@ -25,18 +25,19 @@ import 'package:my_app/src/models/news.dart';
 class FetchData extends GetxController {
   static FetchData get find => Get.find();
   RxList<String> colleges = <String>[].obs;
+  RxList<String> degreeCourses = <String>[].obs;
   RxList<News> news = <News>[].obs;
   RxList<Courses> courses = <Courses>[].obs;
   RxDouble loadingWidgetSize = 200.0.obs;
   RxDouble containerSize = 0.0.obs;
 
 
-  Future fetchDegreeColleges() async {
+  Future fetchDegreeColleges(courseName) async {
     loadingWidgetSize = 200.0.obs;
     containerSize = 0.0.obs;
-    var degreeCourseName = "Computer Science";
+    // var degreeCourseName = "Computer Science";
     final response = await http.get(Uri.parse(
-        'https://recom.cfapps.sap.hana.ondemand.com/v1/colleges?subject=$degreeCourseName'));
+        'https://recom.cfapps.sap.hana.ondemand.com/v1/colleges?subject=$courseName'));
     if (response.statusCode == 200) {
       // If the server did return a 200 OK response,
       // then parse the JSON.
@@ -112,6 +113,34 @@ class FetchData extends GetxController {
     }
   }
 
+    Future fetchDegreeCourses() async {
+      loadingWidgetSize = 200.0.obs;
+    containerSize = 0.0.obs;
+    // todo: fetch topics from user data
+    var hobbies = "puzzles, writing";
+    var skills = "problem solving, math, english";
+    var personality = "INTJ";
+    final response = await http.get(Uri.parse(
+        'https://recom.cfapps.sap.hana.ondemand.com/v1/degreeCourses?hobbies=$hobbies&skills=$skills&personality=$personality'));
+    if (response.statusCode == 200) {
+     
+       
+        List<dynamic> data = jsonDecode(response.body);
+       List<String> entries = [];
+      for (int i = 0; i < data.length; i++) {
+        entries.add(data[i]);
+      }
+      degreeCourses.value = RxList.from(entries);
+      loadingWidgetSize.value = 0.0;
+      containerSize.value = 500.0;
+
+
+    } else {
+      // If the server did not return a 200 OK response,
+      // then throw an exception.
+      throw Exception('Failed to load courses');
+    }
+  }
 RxString url = "".obs;
 
  Future launchingUrl() async {
