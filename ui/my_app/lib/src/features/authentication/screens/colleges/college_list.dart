@@ -5,6 +5,9 @@ import 'package:my_app/src/ApiCalls/fetchData.dart';
 import 'package:my_app/src/features/authentication/constants/image_strings.dart';
 import 'package:my_app/src/features/authentication/constants/sizes.dart';
 import 'package:my_app/src/features/authentication/screens/landing_page/pageDrawer.dart';
+import 'package:loading_animation_widget/loading_animation_widget.dart';
+
+
 
 class CollegeList extends StatelessWidget {
   CollegeList({Key? key}) : super(key: key);
@@ -46,8 +49,13 @@ final controller = Get.put(FetchData());
             );
           },
         ),
+        LoadingAnimationWidget.newtonCradle(
+                color: Colors.teal,
+                size: controller.loadingWidgetSize.value,
+
+              ),
         Container(
-          height: 500,
+          height: controller.containerSize.value,
           child: ListView.builder(
           itemCount: controller.colleges.value.length,
           itemBuilder: (context, position) {
