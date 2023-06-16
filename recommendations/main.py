@@ -1,7 +1,7 @@
 # Importing flask module in the project is mandatory
 # An object of Flask class is our WSGI application.
 from flask import Flask,request
-from flow import getDegreeCourses,getCollegeNames,get_courses,get_latest_news
+from flow import getDegreeCourses,getCollegeNames,get_courses,get_latest_news,find_jobs
 
 # Flask constructor takes the name of
 # current module (__name__) as argument.
@@ -35,6 +35,11 @@ def suggested_courses():
 def fetch_latest_news():
       skills = request.args.get("topics")
       return get_latest_news(skills)
+
+@app.route('/v1/jobs')
+def fetch_jobs():
+      skills = request.args.get("skills")
+      return find_jobs(skills)
 
 
     
