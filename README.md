@@ -1,5 +1,12 @@
 # CPAD4Y2023Team04
 
+### Team:
+- Gaurav Golcha
+- Meghna Sen
+- Pooja Shah (I513949) : 2020HS70005
+- Rahul Keluskar
+- Sneha Agarwal
+
 ### UI Setup:
 https://docs.flutter.dev/get-started/install/windows
 add adroid sdk, platform-tools, platforms to path .
