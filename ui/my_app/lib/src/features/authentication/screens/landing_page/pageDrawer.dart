@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:my_app/src/features/authentication/constants/image_strings.dart';
+import 'package:my_app/src/features/authentication/screens/login/login_screen.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class pageDrawer extends StatelessWidget {
   const pageDrawer({
@@ -52,11 +54,18 @@ class pageDrawer extends StatelessWidget {
               alignment: Alignment.bottomCenter,
               child: ListTile(
                 title: const Text('Logout'),
-                onTap: () {
+                onTap: () async{
                   // Update the state of the app
                   // ...
                   // Then close the drawer
+                  final prefs = await SharedPreferences.getInstance();
+                  prefs.setBool("loggedIn", false);
                   Navigator.pop(context);
+                  Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => LoginScreen()));
+
                 },
               ),
             ),
