@@ -4,12 +4,14 @@ import 'package:loading_animation_widget/loading_animation_widget.dart';
 import 'package:my_app/src/ApiCalls/fetchData.dart';
 import 'package:my_app/src/features/authentication/constants/image_strings.dart';
 import 'package:my_app/src/features/authentication/constants/sizes.dart';
+import 'package:my_app/src/features/authentication/screens/colleges/college_list.dart';
 import 'package:my_app/src/features/authentication/screens/landing_page/pageDrawer.dart';
 import 'package:get/get.dart';
 
-class courseList extends StatelessWidget {
-  courseList({Key? key}) : super(key: key);
+class Degreecourses extends StatelessWidget {
+  Degreecourses({Key? key}) : super(key: key);
   // relevant images for courses
+  
   final items = [
     splashScreenImage,
     splashScreenImage2,
@@ -20,7 +22,7 @@ class courseList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     //  List<News> articles = <News>[news1,news2,news3];
-    controller.fetchCourses();
+    controller.fetchDegreeCourses();
     return Scaffold(
       drawer: pageDrawer(),
       appBar: AppBar(
@@ -51,18 +53,18 @@ class courseList extends StatelessWidget {
             Container(
               height: controller.containerSize.value,
               child: ListView.builder(
-                itemCount: controller.courses.value.length,
+                itemCount: controller.degreeCourses.value.length,
                 itemBuilder: (context, position) {
                   return GestureDetector(
                       onTap: ()  {
-                        controller.url.value = controller.courses.value[position].link;
-                        controller.launchingUrl();
+                        Navigator.of(context).push(MaterialPageRoute(builder: (context)=> CollegeList(courseName: controller.degreeCourses.value[position])));
+                       
                       },
                       child: Card(
                         child: Padding(
                           padding: const EdgeInsets.all(20.0),
                           child: Text(
-                            controller.courses.value[position].course,
+                            controller.degreeCourses.value[position],
                             style: TextStyle(fontSize: 22.0),
                           ),
                         ),

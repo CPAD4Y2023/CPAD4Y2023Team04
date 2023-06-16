@@ -2,6 +2,8 @@ import 'package:http/http.dart' as http;
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:my_app/src/features/authentication/screens/colleges/college_list.dart';
+import 'package:my_app/src/models/courses.dart';
+import 'package:my_app/src/models/job.dart';
 import 'dart:convert';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:my_app/src/models/news.dart';
@@ -24,12 +26,20 @@ import 'package:my_app/src/models/news.dart';
 class FetchData extends GetxController {
   static FetchData get find => Get.find();
   RxList<String> colleges = <String>[].obs;
+  RxList<String> degreeCourses = <String>[].obs;
   RxList<News> news = <News>[].obs;
+  RxList<Courses> courses = <Courses>[].obs;
+  RxList<Job> jobs = <Job>[].obs;
+  RxDouble loadingWidgetSize = 200.0.obs;
+  RxDouble containerSize = 0.0.obs;
 
-  Future fetchDegreeColleges() async {
-    var degreeCourseName = "Computer Science";
+
+  Future fetchDegreeColleges(courseName) async {
+    loadingWidgetSize = 200.0.obs;
+    containerSize = 0.0.obs;
+    // var degreeCourseName = "Computer Science";
     final response = await http.get(Uri.parse(
-        'https://recom.cfapps.sap.hana.ondemand.com/v1/colleges?subject=$degreeCourseName'));
+        'https://recom.cfapps.sap.hana.ondemand.com/v1/colleges?subject=$courseName'));
     if (response.statusCode == 200) {
       // If the server did return a 200 OK response,
       // then parse the JSON.
@@ -41,6 +51,8 @@ class FetchData extends GetxController {
         entries.add(data[i]);
       }
       colleges.value = RxList.from(entries);
+      loadingWidgetSize.value = 0.0;
+      containerSize.value = 500.0;
     } else {
       // If the server did not return a 200 OK response,
       // then throw an exception.
@@ -50,18 +62,21 @@ class FetchData extends GetxController {
 
   Future fetchNews() async {
     // todo: fetch topics from user data
+    loadingWidgetSize = 200.0.obs;
+    containerSize = 0.0.obs;
     var topics = "tech,finance,sports";
     final response = await http.get(Uri.parse(
         'https://recom.cfapps.sap.hana.ondemand.com/v1/latestNews?topics=$topics'));
     if (response.statusCode == 200) {
      
-        int a = 7;
         List<dynamic> allNews = jsonDecode(response.body);
         List<News> dataCopy = [];
         for (int i = 0; i< allNews.length;i++)
         {
           dataCopy.add(News.fromJson(allNews[i]));
         }
+        loadingWidgetSize.value = 0.0;
+      containerSize.value = 500.0;
       news.value = RxList.from(dataCopy);
 
 
@@ -72,6 +87,89 @@ class FetchData extends GetxController {
     }
   }
 
+  Future fetchJobs() async {
+    // todo: fetch topics from user data
+    loadingWidgetSize = 200.0.obs;
+    containerSize = 0.0.obs;
+    var skills = "python,java";
+    final response = await http.get(Uri.parse(
+        'https://recom.cfapps.sap.hana.ondemand.com/v1/jobs?skills=$skills'));
+    if (response.statusCode == 200) {
+     
+        List<dynamic> allJobs = jsonDecode(response.body);
+        List<Job> dataCopy = [];
+        for (int i = 0; i< allJobs.length;i++)
+        {
+          dataCopy.add(Job.fromJson(allJobs[i]));
+        }
+        loadingWidgetSize.value = 0.0;
+      containerSize.value = 500.0;
+      jobs.value = RxList.from(dataCopy);
+
+
+    } else {
+      // If the server did not return a 200 OK response,
+      // then throw an exception.
+      throw Exception('Failed to load courses');
+    }
+  }
+
+    Future fetchCourses() async {
+      loadingWidgetSize = 200.0.obs;
+    containerSize = 0.0.obs;
+    // todo: fetch topics from user data
+    var skills = "python,nlp,java";
+    final response = await http.get(Uri.parse(
+        'https://recom.cfapps.sap.hana.ondemand.com/v1/course?skills=$skills'));
+    if (response.statusCode == 200) {
+     
+       
+        List<dynamic> allCourses = jsonDecode(response.body);
+        List<Courses> dataCopy = [];
+        for (int i = 0; i< allCourses.length;i++)
+        {
+          dataCopy.add(Courses.fromJson(allCourses[i]));
+        }
+        loadingWidgetSize.value = 0.0;
+      containerSize.value = 500.0;
+      courses.value = RxList.from(dataCopy);
+
+
+    } else {
+      // If the server did not return a 200 OK response,
+      // then throw an exception.
+      throw Exception('Failed to load courses');
+    }
+  }
+
+    Future fetchDegreeCourses() async {
+      loadingWidgetSize = 200.0.obs;
+    containerSize = 0.0.obs;
+    // todo: fetch topics from user data
+    var hobbies = "puzzles, writing";
+    var skills = "problem solving, math, english";
+    var personality = "INTJ";
+    final response = await http.get(Uri.parse(
+        'https://recom.cfapps.sap.hana.ondemand.com/v1/degreeCourses?hobbies=$hobbies&skills=$skills&personality=$personality'));
+    if (response.statusCode == 200) {
+     
+       
+        List<dynamic> data = jsonDecode(response.body);
+       List<String> entries = [];
+      for (int i = 0; i < data.length; i++) {
+        entries.add(data[i]);
+      }
+      degreeCourses.value = RxList.from(entries);
+      loadingWidgetSize.value = 0.0;
+      containerSize.value = 500.0;
+
+
+    } else {
+      // If the server did not return a 200 OK response,
+      // then throw an exception.
+      throw Exception('Failed to load courses');
+    }
+  }
 RxString url = "".obs;
 
  Future launchingUrl() async {

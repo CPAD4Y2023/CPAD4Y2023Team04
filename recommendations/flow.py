@@ -1,5 +1,6 @@
 from prompt import fetch_answer
 from scraper import scrape_tech_news,scrape_sports_news,scrape_finance_news
+from jobs_scraper import scrape_jobs
 import random
 
 
@@ -48,6 +49,12 @@ def get_courses(skill):
             courses.append({"Course": sep[0], "Link" : sep[1]})
 
     return courses
+
+def find_jobs(skills):
+    # skills=skills.replace(' ','').replace(",","-")
+    
+    return scrape_jobs(skills)
+    
 
 def get_latest_news(skills):
     answer = []

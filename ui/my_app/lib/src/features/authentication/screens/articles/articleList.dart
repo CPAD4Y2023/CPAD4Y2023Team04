@@ -6,6 +6,7 @@ import 'package:my_app/src/features/authentication/constants/image_strings.dart'
 import 'package:my_app/src/features/authentication/constants/sizes.dart';
 import 'package:my_app/src/features/authentication/screens/landing_page/pageDrawer.dart';
 import 'package:my_app/src/models/news.dart';
+import 'package:loading_animation_widget/loading_animation_widget.dart';
 
 class articleList extends StatelessWidget {
   articleList({Key? key}) : super(key: key);
@@ -48,8 +49,13 @@ class articleList extends StatelessWidget {
                 );
               },
             ),
+            LoadingAnimationWidget.newtonCradle(
+                color: Colors.teal,
+                size: controller.loadingWidgetSize.value,
+
+              ),
             Container(
-              height: 500,
+              height: controller.containerSize.value,
               child: ListView.builder(
                 itemCount: controller.news.value.length,
                 itemBuilder: (context, position) {
