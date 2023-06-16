@@ -22,4 +22,10 @@ const String tOTPTitle = "CO\nDE";
 const String tOTPSubtitle = "Verification";
 const String tVerificationText = "Please enter the verification code sent in you email.";
 
+const String pref_personality = "PERSONALITY";
+const String pref_skills= "SKILLS";
+const String pref_hobbies = "HOBBIES";
+const String pref_topics = "TOPICS";
+
+
 

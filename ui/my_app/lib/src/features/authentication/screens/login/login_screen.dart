@@ -5,7 +5,9 @@ import 'package:my_app/src/features/authentication/constants/sizes.dart';
 import 'package:my_app/src/features/authentication/constants/text_strings.dart';
 import 'package:my_app/src/features/authentication/screens/forgot_password/forgot_password_mail.dart';
 import 'package:my_app/src/features/authentication/screens/landing_page/landing_page.dart';
+import 'package:my_app/src/features/authentication/screens/login/loginController.dart';
 import 'package:my_app/src/features/authentication/screens/signup/signup_screen.dart';
+import 'package:get/get.dart';
 
 class LoginScreen extends StatelessWidget{
   const LoginScreen({Key? key}) : super(key: key);
@@ -13,6 +15,7 @@ class LoginScreen extends StatelessWidget{
   @override
   Widget build(BuildContext context)
   {
+    final controller = Get.put(LoginController());
     var height = MediaQuery.of(context).size.height;
     return Scaffold(body: SingleChildScrollView(
       child: Container(
@@ -78,9 +81,13 @@ class LoginScreen extends StatelessWidget{
                   ));}, child: const Text(tForgotPassword),),
                 ),
 
-                SizedBox(width:double.infinity, child:ElevatedButton(onPressed: (){Navigator.push(context, MaterialPageRoute(
-                                      builder: (context) =>
-                                          LandingPage()));}, child: Text(tLogin.toUpperCase())))
+                SizedBox(width:double.infinity, child:ElevatedButton(onPressed: (){
+                  
+                  // Navigator.push(context, MaterialPageRoute(
+                  //                     builder: (context) =>
+                  //                         LandingPage()));
+                      controller.loginClick();                    
+                                          }, child: Text(tLogin.toUpperCase())))
               ],
             )
             )

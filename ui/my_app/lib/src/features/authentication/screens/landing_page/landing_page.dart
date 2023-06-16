@@ -7,8 +7,9 @@ import 'package:my_app/src/features/authentication/screens/articles/articleList.
 import 'package:my_app/src/features/authentication/screens/colleges/college_list.dart';
 import 'package:my_app/src/features/authentication/screens/courses/coursePage.dart';
 import 'package:my_app/src/features/authentication/screens/courses/degreeCourses.dart';
+import 'package:my_app/src/features/authentication/screens/landing_page/landing_page_controller.dart';
 import 'package:my_app/src/features/authentication/screens/landing_page/pageDrawer.dart';
-
+import 'package:get/get.dart';
 class LandingPage extends StatelessWidget {
   LandingPage({Key? key}) : super(key: key);
   // relevant images for articles
@@ -20,6 +21,8 @@ class LandingPage extends StatelessWidget {
   ];
   @override
   Widget build(BuildContext context) {
+    final controller = Get.put(LandingController());
+    controller.addPreferences();
     return Scaffold(
       drawer: pageDrawer(),
       appBar: AppBar(

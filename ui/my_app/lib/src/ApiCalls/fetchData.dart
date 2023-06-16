@@ -1,9 +1,11 @@
 import 'package:http/http.dart' as http;
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:my_app/src/features/authentication/constants/text_strings.dart';
 import 'package:my_app/src/features/authentication/screens/colleges/college_list.dart';
 import 'package:my_app/src/models/courses.dart';
 import 'package:my_app/src/models/job.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'dart:convert';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:my_app/src/models/news.dart';
@@ -33,8 +35,11 @@ class FetchData extends GetxController {
   RxDouble loadingWidgetSize = 200.0.obs;
   RxDouble containerSize = 0.0.obs;
 
+  
+
 
   Future fetchDegreeColleges(courseName) async {
+    
     loadingWidgetSize = 200.0.obs;
     containerSize = 0.0.obs;
     // var degreeCourseName = "Computer Science";
@@ -62,9 +67,11 @@ class FetchData extends GetxController {
 
   Future fetchNews() async {
     // todo: fetch topics from user data
+    final prefs = await SharedPreferences.getInstance();
+    var topics =prefs.getString(pref_topics);
     loadingWidgetSize = 200.0.obs;
     containerSize = 0.0.obs;
-    var topics = "tech,finance,sports";
+    
     final response = await http.get(Uri.parse(
         'https://recom.cfapps.sap.hana.ondemand.com/v1/latestNews?topics=$topics'));
     if (response.statusCode == 200) {
@@ -89,9 +96,10 @@ class FetchData extends GetxController {
 
   Future fetchJobs() async {
     // todo: fetch topics from user data
+    final prefs = await SharedPreferences.getInstance();
+    var skills =prefs.getString(pref_skills);
     loadingWidgetSize = 200.0.obs;
     containerSize = 0.0.obs;
-    var skills = "python,java";
     final response = await http.get(Uri.parse(
         'https://recom.cfapps.sap.hana.ondemand.com/v1/jobs?skills=$skills'));
     if (response.statusCode == 200) {
@@ -115,10 +123,11 @@ class FetchData extends GetxController {
   }
 
     Future fetchCourses() async {
+      final prefs = await SharedPreferences.getInstance();
+    var skills =prefs.getString(pref_skills);
       loadingWidgetSize = 200.0.obs;
     containerSize = 0.0.obs;
     // todo: fetch topics from user data
-    var skills = "python,nlp,java";
     final response = await http.get(Uri.parse(
         'https://recom.cfapps.sap.hana.ondemand.com/v1/course?skills=$skills'));
     if (response.statusCode == 200) {
@@ -143,12 +152,16 @@ class FetchData extends GetxController {
   }
 
     Future fetchDegreeCourses() async {
+
+      final prefs = await SharedPreferences.getInstance();
+    var skills =prefs.getString(pref_skills);
+    var hobbies = prefs.getString(pref_hobbies);
+    var personality = prefs.getString(pref_personality);
       loadingWidgetSize = 200.0.obs;
     containerSize = 0.0.obs;
     // todo: fetch topics from user data
-    var hobbies = "puzzles, writing";
-    var skills = "problem solving, math, english";
-    var personality = "INTJ";
+    
+   
     final response = await http.get(Uri.parse(
         'https://recom.cfapps.sap.hana.ondemand.com/v1/degreeCourses?hobbies=$hobbies&skills=$skills&personality=$personality'));
     if (response.statusCode == 200) {
