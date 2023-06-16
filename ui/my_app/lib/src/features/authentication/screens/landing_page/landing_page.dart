@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:my_app/src/features/authentication/constants/image_strings.dart';
 import 'package:my_app/src/features/authentication/constants/sizes.dart';
+import 'package:my_app/src/features/authentication/jobs/jobs.dart';
 import 'package:my_app/src/features/authentication/screens/articles/articleList.dart';
 import 'package:my_app/src/features/authentication/screens/colleges/college_list.dart';
 import 'package:my_app/src/features/authentication/screens/courses/coursePage.dart';
@@ -56,11 +57,12 @@ class LandingPage extends StatelessWidget {
                     clipBehavior: Clip.antiAliasWithSaveLayer,
                     child: InkWell(
                         splashColor: Colors.black26,
-                        onTap: () {Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => Degreecourses()));
-                    },
+                        onTap: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => Degreecourses()));
+                        },
                         child:
                             Column(mainAxisSize: MainAxisSize.min, children: [
                           Ink.image(
@@ -82,7 +84,10 @@ class LandingPage extends StatelessWidget {
                     clipBehavior: Clip.antiAliasWithSaveLayer,
                     child: InkWell(
                         splashColor: Colors.black26,
-                        onTap: () {},
+                        onTap: () {Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => Jobs_List()));},
                         child:
                             Column(mainAxisSize: MainAxisSize.min, children: [
                           Ink.image(
@@ -106,11 +111,12 @@ class LandingPage extends StatelessWidget {
                     clipBehavior: Clip.antiAliasWithSaveLayer,
                     child: InkWell(
                         splashColor: Colors.black26,
-                        onTap: () {Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => courseList()));
-                    },
+                        onTap: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => courseList()));
+                        },
                         child:
                             Column(mainAxisSize: MainAxisSize.min, children: [
                           Ink.image(
@@ -134,11 +140,12 @@ class LandingPage extends StatelessWidget {
                     clipBehavior: Clip.antiAliasWithSaveLayer,
                     child: InkWell(
                         splashColor: Colors.black26,
-                        onTap: () {Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => articleList()));
-                    },
+                        onTap: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => articleList()));
+                        },
                         child:
                             Column(mainAxisSize: MainAxisSize.min, children: [
                           Ink.image(
