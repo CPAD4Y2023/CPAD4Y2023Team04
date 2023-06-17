@@ -5,7 +5,7 @@
 - Meghna Sen
 - Pooja Shah (I513949) : 2020HS70005
 - Rahul Keluskar
-- Sneha Agarwal
+- Sneha Agarwal (I524913) : 2020HS70027
 
 ### UI Setup:
 https://docs.flutter.dev/get-started/install/windows
