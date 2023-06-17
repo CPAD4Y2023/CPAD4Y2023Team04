@@ -33,6 +33,7 @@ dependencies:
   get: ^4.6.5
   url_launcher: ^6.0.9
   loading_animation_widget:
+  group_button: ^5.2.2
 
 
   # The following adds the Cupertino Icons font to your application.
@@ -73,6 +74,14 @@ flutter:
    - assets/images/welcome_screen1.svg
    - assets/images/welcome_screen2.jpg
    - assets/images/google_logo.png
+   - assets/images/news.jpeg
+   - assets/images/onlinec.jpeg
+   - assets/images/jobs.jpeg
+   - assets/images/courses.jpeg
+
+
+
+
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
@@ -86,11 +95,11 @@ flutter:
   # list giving the asset and other descriptors for the font. For
   # example:
   fonts:
-    - family: ShortBaby
+    - family: AniTypewriter
       fonts:
         - asset: assets/fonts/ShortBaby-Mg2w.ttf
         - asset: assets/fonts/ShortBaby-Mg2w.ttf
-          style: italic
+      
     
   #
   # For details regarding fonts from package dependencies,

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:my_app/src/features/authentication/constants/image_strings.dart';
 import 'package:my_app/src/features/authentication/screens/login/login_screen.dart';
+import 'package:my_app/src/features/authentication/screens/updateProfile/updateprofile.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class pageDrawer extends StatelessWidget {
@@ -38,6 +39,10 @@ class pageDrawer extends StatelessWidget {
               // ...
               // Then close the drawer
               Navigator.pop(context);
+              Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => UpdateProfile()));
             },
           ),
           ListTile(

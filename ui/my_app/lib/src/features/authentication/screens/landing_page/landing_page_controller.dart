@@ -24,7 +24,7 @@ class LandingController extends GetxController{
       // store them in the preferences.
       
       prefs.setString(pref_personality, "INTJ");
-      prefs.setString(pref_hobbies, "puzzles, writing,problem solbing,english,math");
+      prefs.setString(pref_hobbies, "puzzles, writing,problem solving,english,math");
       prefs.setString(pref_skills, "python,java,nlp");
       prefs.setString(pref_topics, "tech,finance,sports");
       
