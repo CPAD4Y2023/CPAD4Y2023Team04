@@ -12,10 +12,10 @@ class Jobs_List extends StatelessWidget {
 
   final controller = Get.put(FetchData());
   final items = [
-    splashScreenImage,
-    splashScreenImage2,
-    splashScreenImage3,
-    welcomeScreenImage2
+    a1,
+    a3,
+    a5,
+    a6
   ];
   
   @override

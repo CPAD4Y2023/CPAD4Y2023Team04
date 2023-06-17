@@ -19,9 +19,9 @@ class SignUpScreen extends StatelessWidget{
         child:  Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-
-          Image(image: AssetImage(welcomeScreenImage2), height: height * 0.2),
-          Text(tSignupTitle),
+          SizedBox(height: 30),
+          Image(image: AssetImage(logo), height: height * 0.2,alignment: Alignment.center,),
+          Text(tSignupTitle,   textAlign:TextAlign.center ),
           Text(tSignupSubtitle),
 
 
@@ -51,7 +51,7 @@ class SignUpScreen extends StatelessWidget{
                   suffixIcon: IconButton(onPressed: null,icon:Icon(Icons.remove_red_eye_sharp)))
                 ),
                 
-
+                SizedBox(height: 20),
                 SizedBox(width:double.infinity, child:ElevatedButton(onPressed: (){
 
                   Navigator.push(

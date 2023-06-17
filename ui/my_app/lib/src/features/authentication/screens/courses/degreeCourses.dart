@@ -13,10 +13,10 @@ class Degreecourses extends StatelessWidget {
   // relevant images for courses
   
   final items = [
-    splashScreenImage,
-    splashScreenImage2,
-    splashScreenImage3,
-    welcomeScreenImage2
+    a3,
+    a4,
+    a5,
+    a1
   ];
    final controller = Get.put(FetchData());
   @override
@@ -26,7 +26,7 @@ class Degreecourses extends StatelessWidget {
     return Scaffold(
       drawer: pageDrawer(),
       appBar: AppBar(
-        title: Text('Page heading'),
+        title: Text('Degree Courses'),
       ),
       body: Obx(() => Column(children: [
             CarouselSlider.builder(

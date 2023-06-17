@@ -13,10 +13,10 @@ class articleList extends StatelessWidget {
 
   final controller = Get.put(FetchData());
   final items = [
-    splashScreenImage,
-    splashScreenImage2,
-    splashScreenImage3,
-    welcomeScreenImage2
+    a2,
+    a4,
+    a5,
+    a1
   ];
   // final articles  = ["article1", "article2" , "article3"];
   // News news1 = News(link: "link", text: "Article1", type: "SPORTS");
@@ -30,7 +30,7 @@ class articleList extends StatelessWidget {
     return Scaffold(
       drawer: pageDrawer(),
       appBar: AppBar(
-        title: Text('Page heading'),
+        title: Text('News'),
       ),
       body: Obx(() => Column(children: [
             CarouselSlider.builder(

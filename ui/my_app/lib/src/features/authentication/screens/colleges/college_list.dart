@@ -16,10 +16,10 @@ class CollegeList extends StatelessWidget {
 final controller = Get.put(FetchData());
 
   final items = [
-    splashScreenImage,
-    splashScreenImage2,
-    splashScreenImage3,
-    welcomeScreenImage2
+  a4,
+  a5,
+  a6,
+  a1 
   ];
   // final colleges  = ["College1", "College2" , "College3"];
   @override
@@ -30,7 +30,7 @@ final controller = Get.put(FetchData());
     return Scaffold(
       drawer: pageDrawer(),
       appBar: AppBar(
-        title: Text('Page heading'),
+        title: Text('Colleges'),
       ),
       body: Obx(()=>Column(children: [
         CarouselSlider.builder(

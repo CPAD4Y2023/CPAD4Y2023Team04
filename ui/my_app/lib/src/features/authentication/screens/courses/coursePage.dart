@@ -11,10 +11,10 @@ class courseList extends StatelessWidget {
   courseList({Key? key}) : super(key: key);
   // relevant images for courses
   final items = [
-    splashScreenImage,
-    splashScreenImage2,
-    splashScreenImage3,
-    welcomeScreenImage2
+    a4,
+    a5,
+    a2,
+    a6
   ];
    final controller = Get.put(FetchData());
   @override
@@ -24,7 +24,7 @@ class courseList extends StatelessWidget {
     return Scaffold(
       drawer: pageDrawer(),
       appBar: AppBar(
-        title: Text('Page heading'),
+        title: Text('Courses'),
       ),
       body: Obx(() => Column(children: [
             CarouselSlider.builder(

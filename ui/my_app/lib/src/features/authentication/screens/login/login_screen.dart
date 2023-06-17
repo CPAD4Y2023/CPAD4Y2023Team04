@@ -23,8 +23,8 @@ class LoginScreen extends StatelessWidget{
         child:  Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-
-          Image(image: AssetImage(welcomeScreenImage2), height: height * 0.2),
+            SizedBox(height: 30),
+          Image(image: AssetImage(logo), height: height * 0.2),
           Text(tWelcomeBack),
           Text(tLoginSubtitle),
 
@@ -37,7 +37,11 @@ class LoginScreen extends StatelessWidget{
                   decoration: InputDecoration(prefixIcon: Icon(Icons.person_outline_outlined),
                   labelText : tEmail,
                   hintText : tEmail,
-                  border: OutlineInputBorder())
+                  border: OutlineInputBorder()),
+                  onChanged: (value) {
+                    controller.updateEmail(value);
+                            // print("The value entered is : $value");
+                      }
                 ),
                 SizedBox(height: 30),
                 TextFormField(
@@ -45,7 +49,11 @@ class LoginScreen extends StatelessWidget{
                   labelText : tPassword,
                   hintText : tPassword,
                   border: OutlineInputBorder(),
-                  suffixIcon: IconButton(onPressed: null,icon:Icon(Icons.remove_red_eye_sharp)))
+                  suffixIcon: IconButton(onPressed: null,icon:Icon(Icons.remove_red_eye_sharp))),
+                  onChanged: (value) {
+                    controller.updateEmail(value);
+                            // print("The value entered is : $value");
+                      }
                 ),
                 SizedBox(height: 10),
                 Align(
@@ -57,9 +65,11 @@ class LoginScreen extends StatelessWidget{
                         Text(tForgotPassword),
                         Text(tForgotPasswordSubtitle),
                         const SizedBox(height: 30.0,),
-                        GestureDetector(onTap : (){Navigator.push(context, MaterialPageRoute(
+                        GestureDetector(onTap : (){
+                          Navigator.push(context, MaterialPageRoute(
                                       builder: (context) =>
-                                          const ForgotPasswordMailScreen()));}, child:Container(
+                                          const ForgotPasswordMailScreen()));
+                                          }, child:Container(
                           padding: const EdgeInsets.all(20.0),
                           decoration: BoxDecoration(borderRadius: BorderRadius.circular(10.0),
                           color: Colors.grey.shade100),

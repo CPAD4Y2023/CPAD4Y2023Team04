@@ -25,12 +25,20 @@ class SplashScreen extends StatelessWidget {
               children: [
                 Align(
                     alignment: Alignment.topCenter,
+                    child: Text("",
+                        style: TextStyle(
+                          
+                            fontWeight: FontWeight.w900,
+                            fontSize: 40))),
+                            SizedBox(height: 20),
+                Align(
+                    alignment: Alignment.topCenter,
                     child: Text("Pragati",
                         style: TextStyle(
                           
                             fontWeight: FontWeight.w900,
-                            fontStyle: FontStyle.italic,
                             fontSize: 40))),
+                            SizedBox(height: 20),
                 Align(
                     alignment: Alignment.center,
                     child: Text(tTagLine,
@@ -42,11 +50,11 @@ class SplashScreen extends StatelessWidget {
               ],
             )),
             TFadeInAnimation(durationInMs: 1600,child: Container(
-                  width: 420,
+                  width: 400,
                   height: 300,
                   decoration: const BoxDecoration(
                     image: DecorationImage(
-                      image: AssetImage(splashScreenImage3),
+                      image: AssetImage(logo),
                       fit: BoxFit.contain,
                     ),
                   )),animate: TAmimatePosition(bottomAfter:30, bottomBefore: -80)),

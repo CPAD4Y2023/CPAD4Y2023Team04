@@ -36,12 +36,9 @@ class WelcomeScreen extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
                   Image(
-                      image: AssetImage(welcomeScreenImage2),
+                      image: AssetImage(logo),
                       height: height * 0.6),
-                  Column(children: [
-                    Text("Welcome Title"),
-                    Text("Welcome Subtitle")
-                  ]),
+                  
                   Row(
                     children: [
                       Expanded(

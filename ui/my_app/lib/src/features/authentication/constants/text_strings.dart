@@ -1,5 +1,5 @@
-const String tAppName = "App Name";
-const String tTagLine = "Tag Line";
+const String tAppName = "Pragati";
+const String tTagLine = "Let's learn, Let's grow";
 const String tLogin = "Login";
 const String tWelcomeBack = "Welcome Back,";
 const String tLoginSubtitle = "Let's learn, let's grow";

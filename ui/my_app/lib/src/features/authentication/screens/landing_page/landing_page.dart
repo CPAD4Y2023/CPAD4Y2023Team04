@@ -14,10 +14,10 @@ class LandingPage extends StatelessWidget {
   LandingPage({Key? key}) : super(key: key);
   // relevant images for articles
   final items = [
-    splashScreenImage,
-    splashScreenImage2,
-    splashScreenImage3,
-    welcomeScreenImage2
+    a1,
+    a2,
+    a3,
+    a4
   ];
   @override
   Widget build(BuildContext context) {
@@ -26,7 +26,7 @@ class LandingPage extends StatelessWidget {
     return Scaffold(
       drawer: pageDrawer(),
       appBar: AppBar(
-        title: Text('Page heading'),
+        title: Text('Pagati'),
       ),
       body: Column(children: [
         CarouselSlider.builder(
@@ -70,14 +70,14 @@ class LandingPage extends StatelessWidget {
                             Column(mainAxisSize: MainAxisSize.min, children: [
                           Ink.image(
                             image: AssetImage(courses),
-                            height: 120,
+                            height: 100,
                             width: 140,
                             fit: BoxFit.cover,
                           ),
                           SizedBox(height: 6),
                           Text('Find Degree Courses',
                               style:
-                                  TextStyle(fontSize: 14, color: Colors.white)),
+                                  TextStyle(fontSize: 14, color: Colors.black)),
                           SizedBox(height: 6)
                         ]))),
                 Material(
@@ -95,7 +95,7 @@ class LandingPage extends StatelessWidget {
                             Column(mainAxisSize: MainAxisSize.min, children: [
                           Ink.image(
                             image: AssetImage(jobs),
-                            height: 120,
+                            height: 100,
                             width: 140,
                             fit: BoxFit.cover,
                           ),
@@ -104,7 +104,7 @@ class LandingPage extends StatelessWidget {
                           ),
                           Text('Find Jobs',
                               style:
-                                  TextStyle(fontSize: 14, color: Colors.white)),
+                                  TextStyle(fontSize: 14, color: Colors.black)),
                           SizedBox(height: 6)
                         ]))),
                 Material(
@@ -124,7 +124,7 @@ class LandingPage extends StatelessWidget {
                             Column(mainAxisSize: MainAxisSize.min, children: [
                           Ink.image(
                             image: AssetImage(onlinecourses),
-                            height: 120,
+                            height: 100,
                             width: 140,
                             fit: BoxFit.cover,
                           ),
@@ -133,7 +133,7 @@ class LandingPage extends StatelessWidget {
                           ),
                           Text('Find Online Courses',
                               style:
-                                  TextStyle(fontSize: 14, color: Colors.white)),
+                                  TextStyle(fontSize: 14, color: Colors.black)),
                           SizedBox(height: 6)
                         ]))),
                 Material(
@@ -153,7 +153,7 @@ class LandingPage extends StatelessWidget {
                             Column(mainAxisSize: MainAxisSize.min, children: [
                           Ink.image(
                             image: AssetImage(news),
-                            height: 120,
+                            height: 100,
                             width: 140,
                             fit: BoxFit.cover,
                           ),
@@ -162,7 +162,7 @@ class LandingPage extends StatelessWidget {
                           ),
                           Text('Get News',
                               style:
-                                  TextStyle(fontSize: 14, color: Colors.white)),
+                                  TextStyle(fontSize: 14, color: Colors.black)),
                           SizedBox(height: 6)
                         ])))
               ],

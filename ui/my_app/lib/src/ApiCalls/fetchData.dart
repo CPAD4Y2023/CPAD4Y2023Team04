@@ -183,6 +183,9 @@ class FetchData extends GetxController {
       throw Exception('Failed to load courses');
     }
   }
+
+  // filtering data for articles
+  
 RxString url = "".obs;
 
  Future launchingUrl() async {
