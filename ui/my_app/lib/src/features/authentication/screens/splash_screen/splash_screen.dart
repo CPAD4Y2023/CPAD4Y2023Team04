@@ -25,7 +25,7 @@ class SplashScreen extends StatelessWidget {
               children: [
                 Align(
                     alignment: Alignment.topCenter,
-                    child: Text("App Name",
+                    child: Text("Pragati",
                         style: TextStyle(
                           
                             fontWeight: FontWeight.w900,

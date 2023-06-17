@@ -69,7 +69,7 @@ class LandingPage extends StatelessWidget {
                         child:
                             Column(mainAxisSize: MainAxisSize.min, children: [
                           Ink.image(
-                            image: AssetImage(splashScreenImage),
+                            image: AssetImage(courses),
                             height: 120,
                             width: 140,
                             fit: BoxFit.cover,
@@ -94,7 +94,7 @@ class LandingPage extends StatelessWidget {
                         child:
                             Column(mainAxisSize: MainAxisSize.min, children: [
                           Ink.image(
-                            image: AssetImage(splashScreenImage),
+                            image: AssetImage(jobs),
                             height: 120,
                             width: 140,
                             fit: BoxFit.cover,
@@ -123,7 +123,7 @@ class LandingPage extends StatelessWidget {
                         child:
                             Column(mainAxisSize: MainAxisSize.min, children: [
                           Ink.image(
-                            image: AssetImage(splashScreenImage),
+                            image: AssetImage(onlinecourses),
                             height: 120,
                             width: 140,
                             fit: BoxFit.cover,
@@ -152,7 +152,7 @@ class LandingPage extends StatelessWidget {
                         child:
                             Column(mainAxisSize: MainAxisSize.min, children: [
                           Ink.image(
-                            image: AssetImage(splashScreenImage),
+                            image: AssetImage(news),
                             height: 120,
                             width: 140,
                             fit: BoxFit.cover,

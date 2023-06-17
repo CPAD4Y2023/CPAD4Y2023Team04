@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:my_app/src/features/authentication/constants/image_strings.dart';
 import 'package:my_app/src/features/authentication/constants/sizes.dart';
 import 'package:my_app/src/features/authentication/constants/text_strings.dart';
+import 'package:my_app/src/features/authentication/screens/dataCollection/dataCollection.dart';
 import 'package:my_app/src/features/authentication/screens/login/login_screen.dart';
 
 class SignUpScreen extends StatelessWidget{
@@ -51,7 +52,13 @@ class SignUpScreen extends StatelessWidget{
                 ),
                 
 
-                SizedBox(width:double.infinity, child:ElevatedButton(onPressed: (){}, child: Text(tSignUP.toUpperCase())))
+                SizedBox(width:double.infinity, child:ElevatedButton(onPressed: (){
+
+                  Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => DataCollection()));
+                }, child: Text(tSignUP.toUpperCase())))
               ],
             )
             )
