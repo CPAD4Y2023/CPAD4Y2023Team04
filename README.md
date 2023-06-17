@@ -1,11 +1,11 @@
 # CPAD4Y2023Team04
 
 ### Team:
-- Gaurav Golcha
-- Meghna Sen
+- Gaurav Golcha : 2020HS70036
+- Meghna Sen: 2020HS70035
 - Pooja Shah (I513949) : 2020HS70005
-- Rahul Keluskar
-- Sneha Agarwal
+- Rahul Keluskar: 2020HS70025
+- Sneha Agarwal : 2020HS70027
 
 ### UI Setup:
 https://docs.flutter.dev/get-started/install/windows
