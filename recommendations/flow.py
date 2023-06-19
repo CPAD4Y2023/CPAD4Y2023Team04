@@ -50,6 +50,18 @@ def get_courses(skill):
 
     return courses
 
+def fetchCertifications(skills):
+    prompt = '''what certification course should a person with <skills> pursue? 
+    Certification such as Cisco Certified Network Associate, AWS Cloud Practitioner, Google cloud digital leader
+    Answer in the format: 
+    - certification 1   
+    - certification 2
+    - certification 3 
+    without adding any extra text but add atleast 5 certifications'''
+    prompt = prompt.replace("<skills>", skills)
+    answer = fetch_answer(prompt)
+    return answer
+
 def find_jobs(skills):
     # skills=skills.replace(' ','').replace(",","-")
     

@@ -35,6 +35,8 @@ class FetchData extends GetxController {
   RxDouble loadingWidgetSize = 200.0.obs;
   RxDouble containerSize = 0.0.obs;
 
+  RxList<String> certifications = <String>[].obs;
+
   
 
 
@@ -194,6 +196,43 @@ RxString url = "".obs;
     throw Exception('Could not launch $_url');
   }
 }
+
+Future fetchCertifications() async {
+    
+    loadingWidgetSize = 200.0.obs;
+    containerSize = 0.0.obs;
+    // var degreeCourseName = "Computer Science";
+    final prefs = await SharedPreferences.getInstance();
+    var data = prefs.getString(pref_skills);
+    var skills;
+    if(data == null)
+     { skills = "";}
+     else
+     {
+      skills = data;
+     }
+
+    final response = await http.get(Uri.parse(
+        'https://recom.cfapps.sap.hana.ondemand.com/v1/certifications?skills=$skills'));
+    if (response.statusCode == 200) {
+      // If the server did return a 200 OK response,
+      // then parse the JSON.
+      print(jsonDecode(response.body));
+      List<dynamic> data = jsonDecode(response.body);
+     
+      List<String> entries = [];
+      for (int i = 0; i < data.length; i++) {
+        entries.add(data[i]);
+      }
+      certifications.value = RxList.from(entries);
+      loadingWidgetSize.value = 0.0;
+      containerSize.value = 500.0;
+    } else {
+      // If the server did not return a 200 OK response,
+      // then throw an exception.
+      throw Exception('Failed to load certifications');
+    }
+  }
 
 
 }

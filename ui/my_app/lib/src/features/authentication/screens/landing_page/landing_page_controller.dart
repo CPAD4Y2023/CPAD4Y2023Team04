@@ -8,6 +8,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 class LandingController extends GetxController{
   static LandingController get find =>Get.find();
   RxBool animate = false.obs;
+  RxString username = "".obs;
 
 @override
   void initState()
@@ -23,13 +24,37 @@ class LandingController extends GetxController{
 
       // store them in the preferences.
       
-      prefs.setString(pref_personality, "INTJ");
-      prefs.setString(pref_hobbies, "puzzles, writing,problem solving,english,math");
-      prefs.setString(pref_skills, "python,java,nlp");
-      prefs.setString(pref_topics, "tech,finance,sports");
+      // prefs.setString(pref_personality, "INTJ");
+      // prefs.setString(pref_hobbies, "puzzles, writing,problem solving,english,math");
+      // prefs.setString(pref_skills, "python,java,nlp");
+      // prefs.setString(pref_topics, "tech,finance,sports");
       
  
   }
 
+ Future fetchUsername() async{
+
+      final prefs = await SharedPreferences.getInstance();
+
+      var data = prefs.getString("username");
+      if(data == null)
+      {
+        username.value="Hello ";
+      }
+      else
+      {
+        username.value = "Hello "+data;
+      }
+      // make an api call to fetch the user preferences.
+
+      // store them in the preferences.
+      
+      // prefs.setString(pref_personality, "INTJ");
+      // prefs.setString(pref_hobbies, "puzzles, writing,problem solving,english,math");
+      // prefs.setString(pref_skills, "python,java,nlp");
+      // prefs.setString(pref_topics, "tech,finance,sports");
+      
+ 
+  }
   
 }

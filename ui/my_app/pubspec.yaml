@@ -34,6 +34,7 @@ dependencies:
   url_launcher: ^6.0.9
   loading_animation_widget:
   group_button: ^5.2.2
+  fluttertoast: 
 
 
   # The following adds the Cupertino Icons font to your application.
@@ -43,6 +44,7 @@ dependencies:
   carousel_slider: ^4.2.1
   http: ^1.0.0
   shared_preferences: ^2.1.2
+  crypto: ^3.0.3
 
 dev_dependencies:
   flutter_test:
@@ -86,6 +88,9 @@ flutter:
    - assets/images/a5.jpg
    - assets/images/a6.jpg
    - assets/images/newsfinal.png
+   - assets/images/user.jpg
+   - assets/images/newsnew.jpg
+   - assets/images/certification.png
 
 
 

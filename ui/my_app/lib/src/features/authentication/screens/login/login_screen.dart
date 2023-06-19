@@ -37,7 +37,9 @@ class LoginScreen extends StatelessWidget{
                   decoration: InputDecoration(prefixIcon: Icon(Icons.person_outline_outlined),
                   labelText : tEmail,
                   hintText : tEmail,
-                  border: OutlineInputBorder()),
+                  border: OutlineInputBorder(),
+                  
+                  ),
                   onChanged: (value) {
                     controller.updateEmail(value);
                             // print("The value entered is : $value");
@@ -48,12 +50,14 @@ class LoginScreen extends StatelessWidget{
                   decoration: InputDecoration(prefixIcon: Icon(Icons.fingerprint),
                   labelText : tPassword,
                   hintText : tPassword,
+                  
                   border: OutlineInputBorder(),
                   suffixIcon: IconButton(onPressed: null,icon:Icon(Icons.remove_red_eye_sharp))),
                   onChanged: (value) {
-                    controller.updateEmail(value);
+                    controller.updatePassword(value);
                             // print("The value entered is : $value");
-                      }
+                      },
+                 obscureText: true,     
                 ),
                 SizedBox(height: 10),
                 Align(

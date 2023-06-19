@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:my_app/src/features/authentication/constants/image_strings.dart';
+import 'package:my_app/src/features/authentication/screens/landing_page/landing_page_controller.dart';
 import 'package:my_app/src/features/authentication/screens/login/login_screen.dart';
 import 'package:my_app/src/features/authentication/screens/updateProfile/updateprofile.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -11,6 +13,8 @@ class pageDrawer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final controller = Get.put(LandingController());
+    controller.fetchUsername();
     return Drawer(
       // Add a ListView to the drawer. This ensures the user can scroll
       // through the options in the drawer if there isn't enough vertical
@@ -27,8 +31,8 @@ class pageDrawer extends StatelessWidget {
               child: Row(
                 children: [
 
-                  CircleAvatar(foregroundImage: AssetImage(welcomeScreenImage2),radius: 45),
-                  Container(child: Text('Hello <UserName>'),margin: EdgeInsets.all(5.0))
+                  CircleAvatar(foregroundImage: AssetImage(user),radius: 45),
+                  Container(child: Text(controller.username.value),margin: EdgeInsets.all(5.0))
 
                 ],
               )),

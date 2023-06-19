@@ -4,6 +4,7 @@ import 'package:my_app/src/features/authentication/constants/image_strings.dart'
 import 'package:my_app/src/features/authentication/constants/sizes.dart';
 import 'package:my_app/src/features/authentication/jobs/jobs.dart';
 import 'package:my_app/src/features/authentication/screens/articles/articleList.dart';
+import 'package:my_app/src/features/authentication/screens/certifications/certifications.dart';
 import 'package:my_app/src/features/authentication/screens/colleges/college_list.dart';
 import 'package:my_app/src/features/authentication/screens/courses/coursePage.dart';
 import 'package:my_app/src/features/authentication/screens/courses/degreeCourses.dart';
@@ -47,7 +48,7 @@ class LandingPage extends StatelessWidget {
         ),
         Container(
             padding: EdgeInsets.all(40),
-            height: 500,
+            height: 570,
             child: GridView.count(
               mainAxisSpacing: 20,
               crossAxisSpacing: 20,
@@ -161,6 +162,35 @@ class LandingPage extends StatelessWidget {
                             height: 6,
                           ),
                           Text('Get News',
+                              style:
+                                  TextStyle(fontSize: 14, color: Colors.black)),
+                          SizedBox(height: 6)
+                        ]))),
+                          Material(
+                    color: Colors.teal[100],
+                    elevation: 8,
+                    borderRadius: BorderRadius.circular(8),
+                    clipBehavior: Clip.antiAliasWithSaveLayer,
+                    child: InkWell(
+                        splashColor: Colors.black26,
+                        onTap: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => Certifications()));
+                        },
+                        child:
+                            Column(mainAxisSize: MainAxisSize.min, children: [
+                          Ink.image(
+                            image: AssetImage(certification),
+                            height: 100,
+                            width: 140,
+                            fit: BoxFit.cover,
+                          ),
+                          SizedBox(
+                            height: 6,
+                          ),
+                          Text('Find Certifications`',
                               style:
                                   TextStyle(fontSize: 14, color: Colors.black)),
                           SizedBox(height: 6)

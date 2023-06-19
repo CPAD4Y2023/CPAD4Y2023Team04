@@ -12,7 +12,7 @@ import 'package:group_button/group_button.dart';
 
 class DataCollection extends StatelessWidget {
   const DataCollection({Key? key}) : super(key: key);
-
+final username = "Pooja129";
   @override
   Widget build(BuildContext context) {
     final controller = Get.put(DataCollectionController());
@@ -50,6 +50,10 @@ class DataCollection extends StatelessWidget {
                   }
                   return null;
                 },
+                 onChanged: (value) {
+                    controller.setHobbies(value);
+                            // print("The value entered is : $value");
+                      }
               ),
               SizedBox(height: 10),
               TextFormField(
@@ -65,6 +69,10 @@ class DataCollection extends StatelessWidget {
                   }
                   return null;
                 },
+                 onChanged: (value) {
+                    controller.setSkills(value);
+                            // print("The value entered is : $value");
+                      }
               ),
               SizedBox(height: 10),
               TextFormField(
@@ -80,6 +88,10 @@ class DataCollection extends StatelessWidget {
                   }
                   return null;
                 },
+                 onChanged: (value) {
+                    controller.setPersonality(value);
+                            // print("The value entered is : $value");
+                      }
               ),
                 SizedBox(height: 10),
               TextFormField(
@@ -97,13 +109,17 @@ class DataCollection extends StatelessWidget {
                   }
                   return null;
                 },
+                 onChanged: (value) {
+                    controller.setTopics(value);
+                            // print("The value entered is : $value");
+                      }
                 
               ),
              SizedBox(height: 50),
 
               SizedBox(width:double.infinity, child:ElevatedButton(onPressed: (){
 
-                controller.setPreferences();
+                controller.updatePreferences();
               }, child: Text("Next")))
 
             ],
